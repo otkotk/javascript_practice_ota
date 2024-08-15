@@ -1,0 +1,261 @@
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body{
+            max-width: 800px;
+        }
+        /* cssが優先されるっぽい */
+        /* .tabwrap{
+            display: none;
+        }
+        .tabwrap:first-of-type{
+            display: block;
+        } */
+        .btnsWrap{
+            display: flex;
+        }
+        .btnsWrap .col{
+            border: 3px solid #ccc;
+            margin-left: 10px;
+        }
+        .btnsWrap .col .anchor{
+            background-color: #666;
+            padding: 10px;
+        }
+        .btnsWrap .col .anchor a{
+            color: white;
+            font-weight: bold;
+        }
+        .tabwrap{
+            background-color: bisque;
+            height: 510px;
+        }
+        .tabwrap p{
+            padding: 30px 0 0 30px;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .tabwrap .contentItem{
+            border: 2px solid black;
+            width: calc(100% / 4 - 15px);
+            height: 186px;
+            margin: 5px;
+        }
+        .tabwrap .c-i-wrap{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        @media (max-width: 500px) {
+            .tabwrap{
+                width: calc(100% * 4 + 15px);
+            }
+            .tabwrap.tabwrap2col{
+                width: calc(100% * (4 * 2) + (15px * 2));
+            }
+            .tabwrap .contentItem{
+                height: 390px;
+            }
+            .btnsWrap{
+                overflow-x: auto;
+            }
+            .btnsWrap .col .anchor{
+                width: 84px;
+            }
+            .tabwrap .contents .c-i-wrap{
+                /* justify-content: flex-start;
+                flex-wrap: nowrap; */
+                display: block;
+            }
+            .col:has(> .tabwrap){
+                overflow-x: scroll;
+            }
+            .tabwrap .contents .c-i-wrap .contentItem{
+                float: left;
+                width: calc(100% / 4 - 20px);
+            }
+            /* .tabwrap.tabwrap2col .contents .c-i-wrap .contentItem{
+                float: left;
+                width: calc(100% / 4 - 20px);
+            } */
+            .tabwrap.tabwrap2col .contents .c-i-wrap{
+                width: 100%;
+            }
+            .tabwrap .contents{
+                float: left;
+                width: 100%;
+            }
+            .tabwrap.tabwrap2col .contents{
+                float: left;
+                width: calc(100% / 2);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="responsive01 btnsWrap">
+        <div class="col">
+            <div class="anchor"><a href="javascript:displayTab(0);" class="btn">タブ１</a></div>
+        </div>
+        <div class="col">
+            <div class="anchor"><a href="javascript:displayTab(1);" class="btn">タブ２</a></div>
+        </div>
+        <div class="col">
+            <div class="anchor"><a href="javascript:displayTab(2);" class="btn">タブ３</a></div>
+        </div>
+        <div class="col">
+            <div class="anchor"><a href="javascript:displayTab(3);" class="btn">タブ４</a></div>
+        </div>
+        <div class="col">
+            <div class="anchor"><a href="javascript:displayTab(4);" class="btn">タブ５</a></div>
+        </div>
+        <div class="col">
+            <div class="anchor"><a href="javascript:displayTab(5);" class="btn">タブ６</a></div>
+        </div>
+    </div>
+    <div class="responsive01">
+        <div class="responsive02">
+            <div class="col">
+                <div class="tabwrap">
+                    <p>タブ１</p>
+                    <div class="contents">
+                        <div class="c-i-wrap">
+                            <div class="contentItem">コンテンツ１</div>
+                            <div class="contentItem">コンテンツ２</div>
+                            <div class="contentItem">コンテンツ３</div>
+                            <div class="contentItem">コンテンツ４</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="responsive01">
+        <div class="responsive02">
+            <div class="col">
+                <div class="tabwrap tabwrap2col">
+                    <p>タブ２</p>
+                    <div class="contents">
+                        <div class="c-i-wrap">
+                            <div class="contentItem">コンテンツ１</div>
+                            <div class="contentItem">コンテンツ２</div>
+                            <div class="contentItem">コンテンツ３</div>
+                            <div class="contentItem">コンテンツ４</div>
+                        </div>
+                    </div>
+                    <div class="contents">
+                        <div class="c-i-wrap">
+                            <div class="contentItem">コンテンツ５</div>
+                            <div class="contentItem">コンテンツ６</div>
+                            <div class="contentItem">コンテンツ７</div>
+                            <div class="contentItem">コンテンツ８</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="responsive01">
+        <div class="responsive02">
+            <div class="col">
+                <div class="tabwrap">
+                    <p>タブ３</p>
+                    <div class="contents">
+                        <div class="c-i-wrap">
+                            <div class="contentItem">コンテンツ１</div>
+                            <div class="contentItem">コンテンツ２</div>
+                            <div class="contentItem">コンテンツ３</div>
+                            <div class="contentItem">コンテンツ４</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="responsive01">
+        <div class="responsive02">
+            <div class="col">
+                <div class="tabwrap">
+                    <p>タブ４</p>
+                    <div class="contents">
+                        <div class="c-i-wrap">
+                            <div class="contentItem">コンテンツ１</div>
+                            <div class="contentItem">コンテンツ２</div>
+                            <div class="contentItem">コンテンツ３</div>
+                            <div class="contentItem">コンテンツ４</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="responsive01">
+        <div class="responsive02">
+            <div class="col">
+                <div class="tabwrap">
+                    <p>タブ５</p>
+                    <div class="contents">
+                        <div class="c-i-wrap">
+                            <div class="contentItem">コンテンツ１</div>
+                            <div class="contentItem">コンテンツ２</div>
+                            <div class="contentItem">コンテンツ３</div>
+                            <div class="contentItem">コンテンツ４</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="responsive01">
+        <div class="responsive02">
+            <div class="col">
+                <div class="tabwrap">
+                    <p>タブ６</p>
+                    <div class="contents">
+                        <div class="c-i-wrap">
+                            <div class="contentItem">コンテンツ１</div>
+                            <div class="contentItem">コンテンツ２</div>
+                            <div class="contentItem">コンテンツ３</div>
+                            <div class="contentItem">コンテンツ４</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let tabwrap = document.getElementsByClassName("tabwrap");
+
+        //初期処理
+        window.addEventListener("load", displayTabNone, false);
+        window.addEventListener("load", displayTabFirstElement, false);
+
+        //タブ全部を非表示
+        function displayTabNone(){
+            for(let i=0; i<tabwrap.length; i++){
+                tabwrap[i].closest(".responsive01").style.display = "none";
+            }
+        }
+
+        //最初のタブを表示
+        function displayTabFirstElement(){
+            tabwrap[0].closest(".responsive01").style.display = "block";
+        }
+
+        //引数のタブを表示、それ以外は非表示
+        function displayTab(n){
+            displayTabNone();
+            tabwrap[n].closest(".responsive01").style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
